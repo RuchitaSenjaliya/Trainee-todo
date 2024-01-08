@@ -1,0 +1,35 @@
+.login {
+    max-width: 600px;
+    margin: auto;
+    padding: 50px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.login h1,
+.login p {
+    text-align: center;
+}
+
+.login p {
+    margin-bottom: 36px;
+}
+
+.login input {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: none;
+    background-color: #ebf7ff;
+    margin: 5px 0 20px;
+}
+
+.login input:focus-visible {
+    outline: 2px solid #6495ed;
+}
+
+.text-center {
+    text-align: center;
+}

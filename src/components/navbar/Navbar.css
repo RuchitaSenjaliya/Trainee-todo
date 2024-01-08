@@ -1,0 +1,48 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #272727;
+    color: #fff;
+    padding: 12px 36px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logo span {
+    padding-top: 6px;
+    margin-left: 3px;
+}
+
+.navbar ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.navbar ul li {
+    margin: 0 12px;
+    cursor: pointer;
+    position: relative;
+}
+
+.navbar ul li::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: crimson;
+    transition: 0.4s all;
+}
+
+.navbar ul li:hover::after {
+    width: 100%;
+}
