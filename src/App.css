@@ -43,3 +43,23 @@
   cursor: pointer;
   transition: 0.3s all;
 }
+
+.content {
+  max-width: 1000px;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.text-red {
+  color: crimson;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 24px 0 0 0;
+  position: relative;
+}

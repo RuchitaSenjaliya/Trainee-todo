@@ -26,13 +26,14 @@
     list-style: none;
 }
 
-.navbar ul li {
+.navbar ul .link {
     margin: 0 12px;
     cursor: pointer;
     position: relative;
+    color: #fff;
 }
 
-.navbar ul li::after {
+.navbar ul .link::after {
     content: "";
     position: absolute;
     bottom: -3px;
@@ -43,6 +44,24 @@
     transition: 0.4s all;
 }
 
-.navbar ul li:hover::after {
+.navbar ul .link:hover::after {
     width: 100%;
+}
+
+.link-active {
+    margin: 0 12px;
+    cursor: pointer;
+    position: relative;
+    color: #fff;
+}
+
+.link-active::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: crimson;
+    transition: 0.4s all;
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import "./Navbar.css";
 import { FaCheckSquare } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -19,10 +19,26 @@ export default function Navbar() {
         </span>
       </div>
       <ul>
-        <li>Home</li>
-        <li>About</li>
-        <li>Services</li>
-        <li>Contact</li>
+        <NavLink
+          to="/"
+          className={({ isActive }) => (isActive ? "link-active" : "link")}>
+          Home
+        </NavLink>
+        <NavLink
+          to="/about"
+          className={({ isActive }) => (isActive ? "link-active" : "link")}>
+          About
+        </NavLink>
+        <NavLink
+          to="/services"
+          className={({ isActive }) => (isActive ? "link-active" : "link")}>
+          Services
+        </NavLink>
+        <NavLink
+          to="/contact"
+          className={({ isActive }) => (isActive ? "link-active" : "link")}>
+          Contact
+        </NavLink>
       </ul>
       <div className="logout">
         <button type="button" className="btn-red" onClick={logoutHandler}>
