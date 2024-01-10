@@ -1,44 +1,21 @@
-import { useState } from "react";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./App.css";
-import Navbar from "./components/navbar/Navbar";
-import TodoForm from "./components/todoForm/TodoForm.jsx";
-import TodoList from "./components/todoList/TodoList.jsx";
-import Login from "./components/login/Login.jsx";
+import HomePage from "./pages/HomePage";
+import Login from "./components/login/Login";
 
-// list of dummy task
-const DUMMY = [
+const router = createBrowserRouter([
   {
-    id: "1",
-    title: "Read book",
+    path: "/",
+    element: <HomePage />,
   },
   {
-    id: "2",
-    title: "Go to market",
+    path: "/login",
+    element: <Login />,
   },
-];
+]);
 
 function App() {
-  const [taskList, setTaskList] = useState(DUMMY);
-
-  // child to parent connection to get entered data
-  const onAddTask = (title) => {
-    console.log(title);
-    setTaskList((prev) => [
-      ...prev,
-      { id: Math.random().toString(), title: title },
-    ]);
-  };
-
-  return (
-    <div className="home">
-      <Navbar />
-      <div className="todo">
-        <TodoForm onAddTask={onAddTask} />
-        <TodoList taskList={taskList} setTaskList={setTaskList} />
-      </div>
-      {/* <Login /> */}
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
