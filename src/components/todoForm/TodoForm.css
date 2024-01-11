@@ -1,5 +1,5 @@
 .todo-form {
-    margin: 26px 0;
+    /* margin: 26px 0; */
 }
 
 .todo-form .title {
@@ -23,16 +23,6 @@
     position: relative;
 }
 
-.todo-form .btn-blue:hover {
-    background-color: #3b6ece;
-    color: #fff;
-    padding: 8px 24px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    border: 2px solid #3b6ece;
-}
 
 .todo-form form input {
     width: 100%;
@@ -41,6 +31,7 @@
     padding: 16px 14px;
     border-radius: 5px;
     font-size: 16px;
+    margin-bottom: 20px;
 }
 
 .todo-form form button {

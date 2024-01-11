@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Navbar.css";
 import { FaCheckSquare } from "react-icons/fa";
 import { NavLink, useNavigate } from "react-router-dom";
 import ConfirmationAlert from "../UI/ConfirmationAlert";
+import { BsFillMoonStarsFill } from "react-icons/bs";
+import { BsCloudSunFill } from "react-icons/bs";
+import ModeContext from "../../context/mode-content";
 
 export default function Navbar() {
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
+  const { mode, toggleMode } = useContext(ModeContext);
 
   const openModal = () => {
     setShowModal(true);
@@ -31,7 +35,7 @@ export default function Navbar() {
       <div className="logo">
         TODO
         <span className="">
-          <FaCheckSquare color="crimson" />
+          <FaCheckSquare color="gold" />
         </span>
       </div>
       <ul>
@@ -48,15 +52,22 @@ export default function Navbar() {
         <NavLink
           to="/services"
           className={({ isActive }) => (isActive ? "link-active" : "link")}>
-          Services
+          All Todos
         </NavLink>
-        <NavLink
+        {/* <NavLink
           to="/contact"
           className={({ isActive }) => (isActive ? "link-active" : "link")}>
           Contact
-        </NavLink>
+        </NavLink> */}
       </ul>
       <div className="logout">
+        <span className="dark-mode-icon" onClick={toggleMode}>
+          {mode === "light" ? (
+            <BsFillMoonStarsFill size={20} />
+          ) : (
+            <BsCloudSunFill size={20} />
+          )}
+        </span>
         <button type="button" className="btn-red" onClick={openModal}>
           Logout
         </button>

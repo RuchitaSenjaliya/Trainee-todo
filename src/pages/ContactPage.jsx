@@ -6,7 +6,6 @@ export default function ContactPage() {
     <>
       <div className="contact">
         <div className="home">
-          <Navbar />
           <div className="content">
             <div className="title">Contact us</div>
           </div>

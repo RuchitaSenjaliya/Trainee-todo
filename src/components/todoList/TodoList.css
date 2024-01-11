@@ -10,30 +10,48 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #6494ed3c;
+    background-color: #ffec829c;
     flex-wrap: wrap;
     width: 290px;
     height: 200px;
     margin: 12px;
     padding: 25px;
     border-radius: 8px;
-
+    color: #000;
 }
 
-.todo-list .task .task-title {
+.todo-list .task-dark {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #fff2aa;
+    color: #000;
+    flex-wrap: wrap;
+    width: 290px;
+    height: 200px;
+    margin: 12px;
+    padding: 25px;
+    border-radius: 8px;
+}
+
+.todo-list .task .task-title,
+.todo-list .task-dark .task-title {
     border-radius: 6px;
     width: 100%;
 }
 
-.todo-list .task .actions {
+.todo-list .task .actions,
+.todo-list .task-dark .actions {
     display: flex;
     align-items: center;
     align-self: flex-end;
     gap: 10px;
 }
 
-.todo-list .task .complete-btn {
-    background-color: cornflowerblue;
+.todo-list .task .complete-btn,
+.todo-list .task-dark .complete-btn {
+    /* background-color: cornflowerblue; */
+    background-color: gold;
     color: #fff;
     padding: 8px 8px 4px;
     border-radius: 8px;
@@ -41,8 +59,9 @@
     cursor: pointer;
 }
 
-.todo-list .task .complete-btn:hover {
-    background-color: #3b6ece;
+.todo-list .task .complete-btn:hover,
+.todo-list .task-dark .complete-btn:hover {
+    background-color: #e5c300;
     color: #fff;
     padding: 8px 8px 4px;
     border-radius: 8px;
@@ -50,7 +69,8 @@
     cursor: pointer;
 }
 
-.todo-list .task .delete-btn {
+.todo-list .task .delete-btn,
+.todo-list .task-dark .delete-btn {
     background-color: #f3345b;
     color: #fff;
     padding: 8px 8px 4px;
@@ -59,7 +79,8 @@
     cursor: pointer;
 }
 
-.todo-list .task .delete-btn:hover {
+.todo-list .task .delete-btn:hover,
+.todo-list .task-dark .delete-btn:hover {
     background-color: crimson;
     color: #fff;
     padding: 8px 8px 4px;

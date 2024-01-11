@@ -5,9 +5,17 @@ import Login from "./components/login/Login";
 import AboutPage from "./pages/AboutPage";
 import ServicePage from "./pages/ServicePage";
 import ContactPage from "./pages/ContactPage";
+import { loader as todoLoader } from "./pages/ServicePage";
+import MainNavigation from "./components/navbar/MainNavigation";
 
 const user = localStorage.getItem("user");
-const privateRoute = user ? <HomePage /> : <Login />;
+const privateRoute = user ? (
+  <MainNavigation>
+    <HomePage />
+  </MainNavigation>
+) : (
+  <Login />
+);
 
 const router = createBrowserRouter([
   {
@@ -16,15 +24,28 @@ const router = createBrowserRouter([
   },
   {
     path: "/about",
-    element: <AboutPage />,
+    element: (
+      <MainNavigation>
+        <AboutPage />
+      </MainNavigation>
+    ),
   },
   {
     path: "/services",
-    element: <ServicePage />,
+    element: (
+      <MainNavigation>
+        <ServicePage />
+      </MainNavigation>
+    ),
+    loader: todoLoader,
   },
   {
     path: "/contact",
-    element: <ContactPage />,
+    element: (
+      <MainNavigation>
+        <ContactPage />
+      </MainNavigation>
+    ),
   },
   {
     path: "/login",

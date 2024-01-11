@@ -1,0 +1,38 @@
+.services .card {
+    background-color: #fff;
+    color: black;
+    padding: 12px 16px;
+    margin: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.services .card-dark {
+    background-color: #272727;
+    color: #FFf;
+    padding: 12px 16px;
+    margin: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.services .card .chip,
+.services .card-dark .chip {
+    padding: 4px 10px;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.services .card .chip.completed,
+.services .card-dark .chip.completed {
+    background-color: gold;
+}
+
+.services .card .chip.pending,
+.services .card-dark .chip.pending {
+    background-color: crimson;
+}

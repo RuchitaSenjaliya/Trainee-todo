@@ -1,16 +1,15 @@
 import React from "react";
-import Navbar from "../components/navbar/Navbar";
+import { useLoaderData } from "react-router-dom";
+import Services from "../components/services/Services";
 
 export default function ServicePage() {
-  return (
-    <div className="services">
-      <div className="home">
-        <Navbar />
-
-        <div className="content">
-          <div className="title">Service of ToDo</div>
-        </div>
-      </div>
-    </div>
-  );
+  const data = useLoaderData();
+  console.log(data.todos);
+  return <Services data={data} />;
 }
+
+export const loader = async () => {
+  const response = await fetch("https://dummyjson.com/todos");
+  const data = await response.json();
+  return data;
+};

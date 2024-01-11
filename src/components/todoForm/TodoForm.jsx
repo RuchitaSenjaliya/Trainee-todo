@@ -23,7 +23,7 @@ export default function TodoForm({ onAddTask }) {
       <div className="title">
         My Todos
         <span>
-          <FaCheckSquare color="crimson" />
+          <FaCheckSquare color="gold" />
         </span>
       </div>
       <form action="" onSubmit={addTaskHandler}>

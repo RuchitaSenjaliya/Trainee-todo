@@ -3,7 +3,7 @@ import "./TodoList.css";
 import { MdDelete } from "react-icons/md";
 import { FaCheck } from "react-icons/fa";
 
-export default function TodoList({ taskList, setTaskList }) {
+export default function TodoList({ taskList, setTaskList, mode }) {
   const deleteTaskHanlder = (id) => {
     const filteredTask = taskList.filter((item) => item.id !== id);
     setTaskList(filteredTask);
@@ -28,7 +28,9 @@ export default function TodoList({ taskList, setTaskList }) {
 
       {/* rendering list of task  */}
       {taskList.map((task) => (
-        <div className="task" key={task.id}>
+        <div
+          className={`${mode === "dark" ? "task-dark" : "task"}`}
+          key={task.id}>
           <div className={`task-title ${task.completed && "line-through"}`}>
             {task.title}
           </div>
