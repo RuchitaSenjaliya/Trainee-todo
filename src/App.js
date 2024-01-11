@@ -6,10 +6,13 @@ import AboutPage from "./pages/AboutPage";
 import ServicePage from "./pages/ServicePage";
 import ContactPage from "./pages/ContactPage";
 
+const user = localStorage.getItem("user");
+const privateRoute = user ? <HomePage /> : <Login />;
+
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomePage />,
+    element: privateRoute,
   },
   {
     path: "/about",

@@ -93,7 +93,9 @@ export default function Login() {
     const data = { email: enteredEmail, pwd: enteredPassword };
     console.log(data);
 
+    localStorage.setItem("user", JSON.stringify(data));
     navigate("/");
+
     setEnteredEmail("");
     setEmailIsTouched(false);
     setEnteredPassword("");
