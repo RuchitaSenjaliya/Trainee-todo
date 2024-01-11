@@ -73,7 +73,7 @@ export default function Login() {
     //   return;
     // }
 
-    if (!enteredEmailIsValid) {
+    if (!enteredEmailIsValid || !enteredPwdIsValid) {
       return;
     }
 
@@ -82,9 +82,6 @@ export default function Login() {
     //   setEnteredPwdIsValid(false);
     //   return;
     // }
-    if (!enteredPwdIsValid) {
-      return;
-    }
 
     // if all these conditions are false then inputs are valid
     // setEnteredEmailIsValid(true);

@@ -21,6 +21,7 @@ export default function Navbar() {
   };
 
   const logoutHanlder = () => {
+    localStorage.removeItem("user");
     navigate("/login");
   };
 

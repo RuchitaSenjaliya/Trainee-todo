@@ -1,4 +1,8 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import {
+  Navigate,
+  RouterProvider,
+  createBrowserRouter,
+} from "react-router-dom";
 import "./App.css";
 import HomePage from "./pages/HomePage";
 import Login from "./components/login/Login";
@@ -14,39 +18,50 @@ const privateRoute = user ? (
     <HomePage />
   </MainNavigation>
 ) : (
-  <Login />
+  <Navigate to="/login" />
 );
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: privateRoute,
+    children: [
+      {
+        index: true,
+        element: (
+          <MainNavigation>
+            <HomePage />
+          </MainNavigation>
+        ),
+      },
+      {
+        path: "/about",
+        element: (
+          <MainNavigation>
+            <AboutPage />
+          </MainNavigation>
+        ),
+      },
+      {
+        path: "/services",
+        element: (
+          <MainNavigation>
+            <ServicePage />
+          </MainNavigation>
+        ),
+        loader: todoLoader,
+      },
+      {
+        path: "/contact",
+        element: (
+          <MainNavigation>
+            <ContactPage />
+          </MainNavigation>
+        ),
+      },
+    ],
   },
-  {
-    path: "/about",
-    element: (
-      <MainNavigation>
-        <AboutPage />
-      </MainNavigation>
-    ),
-  },
-  {
-    path: "/services",
-    element: (
-      <MainNavigation>
-        <ServicePage />
-      </MainNavigation>
-    ),
-    loader: todoLoader,
-  },
-  {
-    path: "/contact",
-    element: (
-      <MainNavigation>
-        <ContactPage />
-      </MainNavigation>
-    ),
-  },
+
   {
     path: "/login",
     element: <Login />,
