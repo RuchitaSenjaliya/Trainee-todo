@@ -1,4 +1,8 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import {
+  Navigate,
+  RouterProvider,
+  createBrowserRouter,
+} from "react-router-dom";
 import "./App.css";
 import HomePage from "./pages/HomePage";
 import Login from "./components/login/Login";
@@ -7,46 +11,61 @@ import ServicePage from "./pages/ServicePage";
 import ContactPage from "./pages/ContactPage";
 import { loader as todoLoader } from "./pages/ServicePage";
 import MainNavigation from "./components/navbar/MainNavigation";
+import PrivateRoute from "./route/PrivateRoute";
+import Error from "./pages/Error";
 
-const user = localStorage.getItem("user");
-const privateRoute = user ? (
-  <MainNavigation>
-    <HomePage />
-  </MainNavigation>
-) : (
-  <Login />
-);
+const userLoginData = JSON.parse(localStorage.getItem("user"));
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: privateRoute,
-  },
-  {
-    path: "/about",
+    errorElement: <Error />,
     element: (
-      <MainNavigation>
-        <AboutPage />
-      </MainNavigation>
+      <PrivateRoute>
+        <MainNavigation
+        // userLoginData={
+        //   userLoginData ? userLoginData : <Navigate to="/login" />
+        // }
+        />
+      </PrivateRoute>
     ),
+    children: [
+      {
+        path: "/",
+        element: (
+          <PrivateRoute>
+            <HomePage />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "about",
+        element: (
+          <PrivateRoute>
+            <AboutPage />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "services",
+        element: (
+          <PrivateRoute>
+            <ServicePage />
+          </PrivateRoute>
+        ),
+        loader: todoLoader,
+      },
+      {
+        path: "contact",
+        element: (
+          <PrivateRoute>
+            <ContactPage />
+          </PrivateRoute>
+        ),
+      },
+    ],
   },
-  {
-    path: "/services",
-    element: (
-      <MainNavigation>
-        <ServicePage />
-      </MainNavigation>
-    ),
-    loader: todoLoader,
-  },
-  {
-    path: "/contact",
-    element: (
-      <MainNavigation>
-        <ContactPage />
-      </MainNavigation>
-    ),
-  },
+
   {
     path: "/login",
     element: <Login />,
