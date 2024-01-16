@@ -6,7 +6,7 @@ const ModeContext = React.createContext({
 });
 
 export const ModeContextProvider = (props) => {
-  const [mode, setMode] = useState("light");
+  const [mode, setMode] = useState("dark");
   const toggleMode = () => {
     if (mode === "light") {
       setMode("dark");

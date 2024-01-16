@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
+import ModeContext from "../../context/mode-content";
 
 export default function Login() {
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
+
+  const { mode } = useContext(ModeContext);
 
   // const [enteredEmailIsValid, setEnteredEmailIsValid] = useState(false);
   // const [enteredPwdIsValid, setEnteredPwdIsValid] = useState(false);
@@ -106,8 +109,8 @@ export default function Login() {
 
   return (
     <>
-      <div className="login-bg">
-        <div className="login">
+      <div className={`${mode === "dark" ? "login-bg-dark" : "login-bg"}`}>
+        <div className={`${mode === "dark" ? "login-dark" : "login"}`}>
           <h1>LOGIN</h1>
           <p className="para">Welcome back !!</p>
           <form action="" onSubmit={loginHandler}>
