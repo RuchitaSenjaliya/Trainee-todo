@@ -1,8 +1,4 @@
-import {
-  Navigate,
-  RouterProvider,
-  createBrowserRouter,
-} from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./App.css";
 import HomePage from "./pages/HomePage";
 import Login from "./components/login/Login";
@@ -14,28 +10,22 @@ import MainNavigation from "./components/navbar/MainNavigation";
 import PrivateRoute from "./route/PrivateRoute";
 import Error from "./pages/Error";
 
-const userLoginData = JSON.parse(localStorage.getItem("user"));
-
 const router = createBrowserRouter([
   {
     path: "/",
     errorElement: <Error />,
     element: (
       <PrivateRoute>
-        <MainNavigation
-        // userLoginData={
-        //   userLoginData ? userLoginData : <Navigate to="/login" />
-        // }
-        />
+        <MainNavigation />
       </PrivateRoute>
     ),
     children: [
       {
         path: "/",
         element: (
-          <PrivateRoute>
-            <HomePage />
-          </PrivateRoute>
+          // <PrivateRoute>
+          <HomePage />
+          // </PrivateRoute>
         ),
       },
       {

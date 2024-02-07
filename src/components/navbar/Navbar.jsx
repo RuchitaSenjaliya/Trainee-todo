@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import "./Navbar.css";
 import { FaCheckSquare } from "react-icons/fa";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import ConfirmationAlert from "../UI/ConfirmationAlert";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 import { BsCloudSunFill } from "react-icons/bs";
@@ -34,10 +34,12 @@ export default function Navbar() {
         />
       )}
       <div className="logo">
-        TODO
-        <span className="">
-          <FaCheckSquare color="gold" />
-        </span>
+        <Link to="/">
+          TODO
+          <span className="">
+            <FaCheckSquare color="gold" />
+          </span>
+        </Link>
       </div>
       <ul>
         <NavLink

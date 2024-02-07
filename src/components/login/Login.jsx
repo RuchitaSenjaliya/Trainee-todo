@@ -105,8 +105,6 @@ export default function Login() {
     setPwdIsTouched(false);
   };
 
-  // if inputs are invalid
-
   return (
     <>
       <div className={`${mode === "dark" ? "login-bg-dark" : "login-bg"}`}>
