@@ -1,9 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaCheckSquare } from "react-icons/fa";
 import "./TodoForm.css";
 
-export default function TodoForm({ onAddTask }) {
+export default function TodoForm({
+  onAddTask,
+  taskList,
+  isEdit,
+  editTitle,
+  setTaskList,
+  onEdit,
+}) {
   const [taskTitle, setTaskTitle] = useState("");
+
+  useEffect(() => {
+    setTaskTitle(editTitle[0]?.title);
+  }, [editTitle]);
 
   const taskTitleChangeHandler = (event) => {
     setTaskTitle(event.target.value);
@@ -18,6 +29,21 @@ export default function TodoForm({ onAddTask }) {
     setTaskTitle("");
   };
 
+  const editTaskHandler = (e) => {
+    e.preventDefault();
+    const data = [...editTitle];
+    const index = taskList.findIndex((i) => i.id === data[0].id);
+    taskList[index] = { id: data[0].id, title: taskTitle };
+    setTaskList(taskList);
+    localStorage.setItem("tasks", JSON.stringify(taskList));
+    onEdit(taskList);
+    setTaskTitle("");
+  };
+
+  // useEffect(() => {
+  //   localStorage.setItem("tasks", JSON.stringify(taskList));
+  // }, [taskList]);
+
   return (
     <div className="todo-form">
       <div className="title">
@@ -26,19 +52,25 @@ export default function TodoForm({ onAddTask }) {
           <FaCheckSquare color="gold" />
         </span>
       </div>
-      <form action="" onSubmit={addTaskHandler}>
+      <form action="" onSubmit={isEdit ? editTaskHandler : addTaskHandler}>
         <input
           type="text"
-          name="task"
+          name="taskTitle"
           id="task"
           className="task-input"
           placeholder="Enter your task...."
           value={taskTitle}
           onChange={taskTitleChangeHandler}
         />
-        <button type="submit" className="btn-blue add-btn">
-          Add
-        </button>
+        {isEdit ? (
+          <button type="submit" className="btn-blue add-btn">
+            Update
+          </button>
+        ) : (
+          <button type="submit" className="btn-blue add-btn">
+            Add
+          </button>
+        )}
       </form>
     </div>
   );

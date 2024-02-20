@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./TodoList.css";
 import { MdDelete } from "react-icons/md";
-import { FaCheck } from "react-icons/fa";
+import { FaCheck, FaEdit } from "react-icons/fa";
 
-export default function TodoList({ taskList, setTaskList, mode }) {
+export default function TodoList({
+  taskList,
+  setTaskList,
+  mode,
+  editTaskHandler,
+}) {
   const deleteTaskHanlder = (id) => {
     const filteredTask = taskList.filter((item) => item.id !== id);
     setTaskList(filteredTask);
@@ -39,6 +44,9 @@ export default function TodoList({ taskList, setTaskList, mode }) {
               className="complete-btn"
               onClick={() => completeTaskHanlder(task.id)}>
               <FaCheck size={21} />
+            </div>
+            <div className="edit-btn" onClick={() => editTaskHandler(task.id)}>
+              <FaEdit size={21} />
             </div>
             <div
               className="delete-btn"
