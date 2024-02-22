@@ -9,6 +9,7 @@ import { loader as todoLoader } from "./pages/ServicePage";
 import MainNavigation from "./components/navbar/MainNavigation";
 import PrivateRoute from "./route/PrivateRoute";
 import Error from "./pages/Error";
+import Register from "./components/register/Register";
 
 const router = createBrowserRouter([
   {
@@ -22,43 +23,30 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: (
-          // <PrivateRoute>
-          <HomePage />
-          // </PrivateRoute>
-        ),
+        element: <HomePage />,
       },
       {
         path: "about",
-        element: (
-          <PrivateRoute>
-            <AboutPage />
-          </PrivateRoute>
-        ),
+        element: <AboutPage />,
       },
       {
         path: "services",
-        element: (
-          <PrivateRoute>
-            <ServicePage />
-          </PrivateRoute>
-        ),
+        element: <ServicePage />,
         loader: todoLoader,
       },
       {
         path: "contact",
-        element: (
-          <PrivateRoute>
-            <ContactPage />
-          </PrivateRoute>
-        ),
+        element: <ContactPage />,
       },
     ],
   },
-
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
   },
 ]);
 

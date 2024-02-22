@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./TodoList.css";
 import { MdDelete } from "react-icons/md";
 import { FaCheck, FaEdit } from "react-icons/fa";

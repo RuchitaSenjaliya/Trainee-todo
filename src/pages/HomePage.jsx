@@ -38,7 +38,7 @@ export default function HomePage() {
       ...prev,
       { id: Math.random().toString(), title: title },
     ]);
-    localStorage.setItem("todos", JSON.stringify(taskList));
+    localStorage.setItem("tasks", JSON.stringify(taskList));
   };
 
   const editTaskHandler = (id) => {

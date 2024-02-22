@@ -113,7 +113,7 @@ export default function Login() {
           <p className="para">Welcome back !!</p>
           <form action="" onSubmit={loginHandler}>
             <label htmlFor="email">Email Address: </label>
-            <br />
+
             <input
               type="email"
               name="email"
@@ -129,7 +129,7 @@ export default function Login() {
               <p className="error">Email must not be empty.</p>
             )}
             <label htmlFor="password">Password: </label>
-            <br />
+
             <input
               type="password"
               name="password"
