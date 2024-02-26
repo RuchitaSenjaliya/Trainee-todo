@@ -5,6 +5,10 @@ import Home from "./components/home/Home";
 import Navbar from "./components/navbar/Navbar";
 import Services from "./components/services/Services";
 
+// add routing
+// Create routes for home, about and service page (Link, NavLink)
+// logic for completed task
+
 // const router = createBrowserRouter([
 //   {
 //     path: "/",

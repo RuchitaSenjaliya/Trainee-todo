@@ -12,6 +12,7 @@ export default function TodoForm({ onAddTask }) {
   const submitHandler = (e) => {
     e.preventDefault();
     onAddTask(title);
+    setTitle("");
   };
   return (
     <div className="todo-form">
@@ -29,6 +30,7 @@ export default function TodoForm({ onAddTask }) {
           className="task-input"
           placeholder="Enter your task..."
           onChange={inputChangeHandler}
+          value={title}
         />
         <button type="submit" className="btn-blue add-btn">
           Add

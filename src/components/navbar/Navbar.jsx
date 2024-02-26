@@ -30,7 +30,7 @@ export default function Navbar() {
         <span className="dark-mode-icon">
           <BsFillMoonStarsFill size={20} />
 
-          <BsCloudSunFill size={20} />
+          {/* <BsCloudSunFill size={20} /> */}
         </span>
         <button type="button" className="btn-red">
           Logout
