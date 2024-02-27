@@ -3,6 +3,7 @@ import "./Navbar.css";
 import { FaCheckSquare } from "react-icons/fa";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 import { BsCloudSunFill } from "react-icons/bs";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Navbar() {
   return (
@@ -16,15 +17,21 @@ export default function Navbar() {
         </a>
       </div>
       <ul>
-        <a href="/" className="link">
+        <NavLink
+          to="/"
+          className={({ isActive }) => (isActive ? "link-active" : " link")}>
           Home
-        </a>
-        <a href="/about" className="link">
+        </NavLink>
+        <NavLink
+          to="/about"
+          className={({ isActive }) => {
+            return isActive ? "link-active" : "link";
+          }}>
           About
-        </a>
-        <a href="/services" className="link">
+        </NavLink>
+        {/* <a href="/services" className="link">
           All Todos
-        </a>
+        </a> */}
       </ul>
       <div className="logout">
         <span className="dark-mode-icon">

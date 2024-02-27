@@ -1,9 +1,8 @@
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./App.css";
-import About from "./components/about/About";
-import Home from "./components/home/Home";
-
-import Navbar from "./components/navbar/Navbar";
-import Services from "./components/services/Services";
+import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
+import RootLayout from "./pages/RootLayout";
 
 // add routing
 // Create routes for home, about and service page (Link, NavLink)
@@ -48,15 +47,25 @@ import Services from "./components/services/Services";
 //   },
 // ]);
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayout />,
+    children: [
+      {
+        path: "/",
+        element: <HomePage />,
+      },
+      {
+        path: "/about",
+        element: <AboutPage />,
+      },
+    ],
+  },
+]);
+
 function App() {
-  return (
-    <>
-      <Navbar />
-      <Home />
-      <About />
-      <Services />
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
