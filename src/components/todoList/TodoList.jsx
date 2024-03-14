@@ -1,7 +1,8 @@
 import React from "react";
 import "./TodoList.css";
 import { MdDelete } from "react-icons/md";
-import { FaCheck, FaEdit } from "react-icons/fa";
+import { FaArrowRight, FaCheck, FaEdit } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export default function TodoList({
   taskList,
@@ -9,6 +10,8 @@ export default function TodoList({
   mode,
   editTaskHandler,
 }) {
+  const navigate = useNavigate();
+
   const deleteTaskHanlder = (id) => {
     const filteredTask = taskList.filter((item) => item.id !== id);
     setTaskList(filteredTask);
@@ -22,6 +25,10 @@ export default function TodoList({
       return task;
     });
     setTaskList(updatedTaskList);
+  };
+
+  const moreBtnHanlder = (id) => {
+    navigate(`/todo/${id}`);
   };
 
   return (
@@ -52,6 +59,9 @@ export default function TodoList({
               className="delete-btn"
               onClick={() => deleteTaskHanlder(task.id)}>
               <MdDelete size={21} />
+            </div>
+            <div className="more-btn" onClick={() => moreBtnHanlder(task.id)}>
+              <FaArrowRight size={20} />
             </div>
           </div>
         </div>

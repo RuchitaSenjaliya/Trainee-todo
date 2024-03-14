@@ -25,6 +25,13 @@ const getLocalTasks = () => {
   }
 };
 
+// steps to edit todo title
+// get id of todo note which you want to edit
+// create a state to keep track of weather todo note is going to edit or not?
+// create another state to manage edited title
+// when edit btn is clicked, get todo title of that note ==> edit task handler ,and set this title to new state
+// pass this title to input field
+
 export default function HomePage() {
   const [taskList, setTaskList] = useState(getLocalTasks);
   const { mode, toggleMode } = useContext(ModeContext);

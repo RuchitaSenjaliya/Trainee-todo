@@ -27,7 +27,7 @@ export default function TodoForm({
     }
     onAddTask(taskTitle);
     setTaskTitle("");
-  };
+  }; 
 
   const editTaskHandler = (e) => {
     e.preventDefault();
