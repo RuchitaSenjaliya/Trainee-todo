@@ -39,4 +39,10 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+  <script>
+    let ele = document.getElementById("root");
+    ele.addEventListener("contextmenu", (ev) => {
+      ev.preventDefault(); // this will prevent browser default behavior
+    });
+  </script>
 </html>
