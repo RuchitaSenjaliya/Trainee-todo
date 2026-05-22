@@ -13,8 +13,10 @@ export default function TodoForm({
   const [taskTitle, setTaskTitle] = useState("");
 
   useEffect(() => {
-    setTaskTitle(editTitle[0]?.title);
-  }, [editTitle]);
+    if (isEdit) {
+      setTaskTitle(editTitle[0].title);
+    }
+  }, [editTitle, isEdit]);
 
   const taskTitleChangeHandler = (event) => {
     setTaskTitle(event.target.value);
@@ -22,18 +24,20 @@ export default function TodoForm({
 
   const addTaskHandler = (e) => {
     e.preventDefault();
-    if (taskTitle.length === 0) {
+    if (taskTitle.trim() === "") {
       return;
     }
     onAddTask(taskTitle);
     setTaskTitle("");
-  }; 
+  };
+
+  console.log({ taskTitle });
 
   const editTaskHandler = (e) => {
     e.preventDefault();
     const data = [...editTitle];
     const index = taskList.findIndex((i) => i.id === data[0].id);
-    if (taskTitle.length === 0) {
+    if (taskTitle.trim() === "") {
       return;
     }
     taskList[index] = { id: data[0].id, title: taskTitle };

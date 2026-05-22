@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import "./Login.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ModeContext from "../../context/mode-content";
 
 export default function Login() {
@@ -146,6 +146,9 @@ export default function Login() {
               <button type="submit" className="btn-red">
                 Login
               </button>
+              <p className="sub-desc">
+                Don't have an Account? <Link to="/register">Sign Up</Link>
+              </p>
             </div>
           </form>
         </div>

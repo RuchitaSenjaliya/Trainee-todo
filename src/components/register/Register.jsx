@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "./Register.css";
 import { useFormik } from "formik";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import ModeContext from "../../context/mode-content";
 import Input from "../UI/Input";
@@ -134,9 +134,13 @@ export default function Register() {
           <div className="text-center">
             <button
               type="submit"
-              className={` ${!(isValid && dirty) ? "btn-disable" : "btn-red"}`}>
+              className={` ${!(isValid && dirty) ? "btn-disable" : "btn-red"}`}
+            >
               Register
             </button>
+            <p className="sub-desc">
+              Already have an Account? <Link to="/login">Sign In</Link>
+            </p>
           </div>
         </form>
       </div>
